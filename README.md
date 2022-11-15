@@ -1,5 +1,7 @@
 # timef
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/inoc603/timef.svg)](https://pkg.go.dev/github.com/inoc603/timef)
+
 > Convinient time parsing and formatting with generics.
 
 ## Usage
