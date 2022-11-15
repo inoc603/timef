@@ -2,6 +2,7 @@ package timef
 
 import (
 	"encoding/json"
+	"math"
 	"testing"
 	"time"
 
@@ -12,7 +13,7 @@ func testFormat[F TimestampUnit](r *require.Assertions) {
 	var format F
 	now := time.Now().Truncate(format.Unit())
 
-	nowBytes, err := json.Marshal(int64(float64(now.UnixNano()) / float64(format.Unit())))
+	nowBytes, err := json.Marshal(int64(math.Ceil(float64(now.UnixNano()) / float64(format.Unit()))))
 	r.Nil(err)
 
 	var ts Timestamp[int, F]
@@ -31,6 +32,6 @@ func testFormat[F TimestampUnit](r *require.Assertions) {
 func TestTimestamp(t *testing.T) {
 	r := require.New(t)
 
-	testFormat[TimestampSeconds](r)
-	testFormat[TimestampMilliseconds](r)
+	testFormat[Seconds](r)
+	testFormat[Milliseconds](r)
 }

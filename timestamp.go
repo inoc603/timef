@@ -38,10 +38,10 @@ type TimestampUnit interface {
 	Unit() time.Duration
 }
 
-type TimestampSeconds struct{}
+type Seconds struct{}
 
-func (t TimestampSeconds) Unit() time.Duration { return time.Second }
+func (t Seconds) Unit() time.Duration { return time.Second }
 
-type TimestampMilliseconds struct{}
+type Milliseconds struct{}
 
-func (t TimestampMilliseconds) Unit() time.Duration { return time.Millisecond }
+func (t Milliseconds) Unit() time.Duration { return time.Millisecond }
